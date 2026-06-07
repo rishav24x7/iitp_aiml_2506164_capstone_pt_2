@@ -15,7 +15,7 @@ The brand wants targeted retention instead of blanket discounting. Segmentation 
 ## Repository structure
 
 ```
-d2c-churn-part2-rfm/
+iitp_aiml_2506164_capstone_pt_2/
 ├── rfm_segmentation.ipynb    # Main notebook (run top-to-bottom, outputs included)
 ├── segments.csv              # Generated: customer_id, segment_name + RFM & behavioural features (2,400 rows)
 ├── retention_strategy.md     # Generated: per-segment actions + budget prioritisation

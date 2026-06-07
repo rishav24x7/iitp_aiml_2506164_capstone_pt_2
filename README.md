@@ -2,15 +2,16 @@
 
 **D2C Customer Churn Intelligence & Retention** · Capstone Part 2 of 4
 
-This repository segments the customer base using **Recency / Frequency / Monetary** scoring fused with
-behavioural signals, and recommends a budget-aware retention action for each segment. **No machine-learning
-model is used** — segmentation is rule/score-based and fully explainable.
+Here I group customers using **Recency / Frequency / Monetary** scoring, mix in a few behavioural signals, and
+then say what I'd actually do with each group and where I'd spend a limited budget. There's **no ML model
+here** — it's all rule-based scoring, so every grouping is easy to explain to a non-technical team.
 
-## Business context
+## The problem I'm working on
 
-The brand wants targeted retention instead of blanket discounting. Segmentation answers *who* to act on and
-*how*, before any predictive model exists. The target `churn_next_60d` (no purchase in the 60 days after the
-`2025-09-30` snapshot) is used **only to validate** that segments separate risk — never to build them.
+The brand wants targeted retention rather than discounting everyone. Segmentation is how you answer *who* to
+act on and *how*, even before a predictive model exists. One ground rule: I only use the `churn_next_60d`
+label (no purchase in the 60 days after the `2025-09-30` snapshot) to **check** that my segments separate risk
+— never to build them in the first place.
 
 ## Repository structure
 
@@ -60,5 +61,6 @@ Reads from the relative `data/` folder. Running it regenerates `segments.csv`, b
 | At-Risk High-Value | 376 | 70.7 | High-touch win-back (top budget priority) |
 | Dormant | 459 | 88.2 | Cheap automated win-back only |
 
-Segments built **without** the label still span a 9%→88% churn gradient — strong evidence the design captures
-real risk. See `retention_strategy.md` for budget order and `manual_review_cases.md` for the 12 human-decision cases.
+Even though I never used the churn label to build them, the segments line up neatly from 9% churn at the top
+to 88% at the bottom — which tells me they're capturing something real. The full budget ordering is in
+`retention_strategy.md`, and the dozen tricky cases I'd hand to a human are in `manual_review_cases.md`.
